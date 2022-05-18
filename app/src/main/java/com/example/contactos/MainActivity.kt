@@ -1,14 +1,14 @@
 package com.example.contactos
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.LayoutInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import com.example.contactos.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,9 +28,16 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        binding.fab.setOnClickListener {
+            try {
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_FirstFragment_to_agregarFragment)
+            } catch (e: Exception) {
+                try {
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_SecondFragment_to_agregarFragment)
+                } catch (e: Exception) {
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_agregarFragment_to_FirstFragment)
+                }
+            }
         }
     }
 

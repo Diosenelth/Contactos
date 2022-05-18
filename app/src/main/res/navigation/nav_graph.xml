@@ -8,12 +8,25 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.contactos.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:label="Lista de contactos"
         tools:layout="@layout/fragment_first">
+
+
+        <action
+            android:id="@+id/action_FirstFragment_to_agregarFragment"
+            app:destination="@id/agregarFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/SecondFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -23,6 +36,23 @@
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+        <argument
+            android:name="telefono"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_SecondFragment_to_agregarFragment"
+            app:destination="@id/agregarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarFragment"
+        android:name="com.example.contactos.AgregarFragment"
+        android:label="Agregar Contacto" >
+        <action
+            android:id="@+id/action_agregarFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

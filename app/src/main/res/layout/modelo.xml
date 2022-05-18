@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/idFondo"
+    android:foreground="?android:attr/selectableItemBackground"   android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp">
+
+    <TextView
+        android:id="@+id/item_lista_general_compuesto_circle_imv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Inicial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/item_lista_general_compuesto_circle_imv"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintLeft_toLeftOf="@+id/item_lista_general_compuesto_circle_imv"
+        app:layout_constraintRight_toRightOf="@+id/item_lista_general_compuesto_circle_imv"
+        app:layout_constraintTop_toTopOf="@+id/item_lista_general_compuesto_circle_imv" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_lista_general_compuesto_circle_imv"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/nombreApellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Nombres"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Telefono"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
