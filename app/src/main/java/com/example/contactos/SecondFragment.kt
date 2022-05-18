@@ -52,7 +52,6 @@ class SecondFragment : Fragment() {
                 }else{
                     Toast.makeText(context,"Error al actualizar",Toast.LENGTH_SHORT).show()
                 }
-                requireActivity().supportFragmentManager.popBackStack()
             }
         }
     }

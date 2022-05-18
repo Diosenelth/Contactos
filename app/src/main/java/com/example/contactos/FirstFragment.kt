@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.contactos.databinding.FragmentFirstBinding
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class FirstFragment : Fragment(), IActualizarVista {
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -29,8 +30,12 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mostrar()
+    }
+
+    private fun mostrar() {
         val db = SQLiteHelper(this.context)
-        val res=db.getDatos()
+        val res = db.getDatos()
 //        val cursor = db.rawQuery("select * from Contactos",null)
         val items = ArrayList<ContactoModel>()
         with(res) {
@@ -46,7 +51,7 @@ class FirstFragment : Fragment() {
                 )
             }
         }
-        val adapter = AdaptadorContactos(items)
+        val adapter = AdaptadorContactos(items, this)
         binding.rv.setHasFixedSize(true)
         binding.rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this.context)
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(
@@ -59,5 +64,16 @@ class FirstFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun actualizarVista(id: String) {
+        val db = SQLiteHelper(this.context)
+        val res = db.deleteDatos(id)
+        if (res) {
+            Toast.makeText(this.context, "Contacto Eliminado", Toast.LENGTH_SHORT).show()
+            mostrar()
+        } else {
+            Toast.makeText(this.context, "Error al eliminar", Toast.LENGTH_SHORT).show()
+        }
     }
 }

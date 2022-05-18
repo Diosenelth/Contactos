@@ -42,6 +42,11 @@ class SQLiteHelper(contexto: Context?) : SQLiteOpenHelper(contexto, NOMBRE_BASE_
         val resultado = db.update("Contactos", contentValues, "id = ?", arrayOf(contactoModel.id.toString()))
         return resultado != -1
     }
+    fun deleteDatos(id:String):Boolean {
+        val db = this.writableDatabase
+        val resultado = db.delete("Contactos", "id = ?", arrayOf(id))
+        return resultado != -1
+    }
 
     companion object {
         private const val NOMBRE_BASE_DATOS = "contactos.db"
