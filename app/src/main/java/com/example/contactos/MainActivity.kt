@@ -2,7 +2,6 @@ package com.example.contactos
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.LayoutInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController

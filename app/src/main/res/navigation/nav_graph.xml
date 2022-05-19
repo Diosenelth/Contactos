@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.contactos.FirstFragment"
+        android:name="com.example.contactos.fragmentos.FirstFragment"
         android:label="Lista de contactos"
         tools:layout="@layout/fragment_first">
 
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.contactos.SecondFragment"
+        android:name="com.example.contactos.fragmentos.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
@@ -49,8 +49,9 @@
     </fragment>
     <fragment
         android:id="@+id/agregarFragment"
-        android:name="com.example.contactos.AgregarFragment"
-        android:label="Agregar Contacto" >
+        android:name="com.example.contactos.fragmentos.AgregarFragment"
+        android:label="Agregar Contacto"
+        tools:layout="@layout/fragment_agregar">
         <action
             android:id="@+id/action_agregarFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />

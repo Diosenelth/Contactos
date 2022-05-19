@@ -1,4 +1,4 @@
-package com.example.contactos
+package com.example.contactos.fragmentos
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.contactos.modelos.ContactoModel
+import com.example.contactos.modelos.ContactoSqlite
 import com.example.contactos.databinding.FragmentAgregarBinding
 
 /**
@@ -30,7 +32,7 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val db = SQLiteHelper(this.context)
+        val db = ContactoSqlite(requireContext())
 
         binding.guardar.text = "Actualizar"
         binding.tvTitle.text = "Actualizar Contacto"
@@ -38,19 +40,23 @@ class SecondFragment : Fragment() {
         binding.apellido.setText(arguments?.getString("apellido"))
         binding.telefono.setText(arguments?.getString("telefono"))
         binding.correo.setText(arguments?.getString("correo"))
-        binding.guardar.setOnClickListener{
-            if (binding.nombre.text.toString().isNotEmpty() && binding.apellido.text.toString().isNotEmpty() && binding.telefono.text.toString().isNotEmpty() && binding.correo.text.toString().isNotEmpty()){
+        binding.guardar.setOnClickListener {
+            if (binding.nombre.text.toString().isNotEmpty() && binding.apellido.text.toString()
+                    .isNotEmpty() && binding.telefono.text.toString()
+                    .isNotEmpty() && binding.correo.text.toString().isNotEmpty()
+            ) {
                 val nombre = binding.nombre.text.toString().uppercase()
                 val apellido = binding.apellido.text.toString().uppercase()
                 val telefono = binding.telefono.text.toString()
                 val correo = binding.correo.text.toString().uppercase()
-                val contactos = ContactoModel(arguments?.getString("id"),nombre,apellido,telefono,correo)
-                val up=db.updateDatos(contactos)
-                if (up){
-                    Toast.makeText(context,"actualizado",Toast.LENGTH_SHORT).show()
+                val contactos =
+                    ContactoModel(arguments?.getString("id"), nombre, apellido, telefono, correo)
+                val up = db.updateDatos(contactos)
+                if (up) {
+                    Toast.makeText(context, "actualizado", Toast.LENGTH_SHORT).show()
                     activity?.onBackPressed()
-                }else{
-                    Toast.makeText(context,"Error al actualizar",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Error al actualizar", Toast.LENGTH_SHORT).show()
                 }
             }
         }

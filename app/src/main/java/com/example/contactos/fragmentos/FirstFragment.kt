@@ -1,4 +1,4 @@
-package com.example.contactos
+package com.example.contactos.fragmentos
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.contactos.IActualizarVista
+import com.example.contactos.modelos.AdaptadorContactos
+import com.example.contactos.modelos.ContactoSqlite
 import com.example.contactos.databinding.FragmentFirstBinding
 
 /**
@@ -34,23 +37,8 @@ class FirstFragment : Fragment(), IActualizarVista {
     }
 
     private fun mostrar() {
-        val db = SQLiteHelper(this.context)
-        val res = db.getDatos()
-//        val cursor = db.rawQuery("select * from Contactos",null)
-        val items = ArrayList<ContactoModel>()
-        with(res) {
-            while (this!!.moveToNext()) {
-                items.add(
-                    ContactoModel(
-                        getString(getColumnIndexOrThrow("id")),
-                        getString(getColumnIndexOrThrow("nombre")),
-                        getString(getColumnIndexOrThrow("apellido")),
-                        getString(getColumnIndexOrThrow("telefono")),
-                        getString(getColumnIndexOrThrow("correo"))
-                    )
-                )
-            }
-        }
+        val db = ContactoSqlite(requireContext())
+        val items = db.getArrayList()
         val adapter = AdaptadorContactos(items, this)
         binding.rv.setHasFixedSize(true)
         binding.rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this.context)
@@ -66,9 +54,9 @@ class FirstFragment : Fragment(), IActualizarVista {
         _binding = null
     }
 
-    override fun actualizarVista(id: String) {
-        val db = SQLiteHelper(this.context)
-        val res = db.deleteDatos(id)
+    override fun actualizarVista(String: String) {
+        val db = ContactoSqlite(requireContext())
+        val res = db.deleteDatos(String)
         if (res) {
             Toast.makeText(this.context, "Contacto Eliminado", Toast.LENGTH_SHORT).show()
             mostrar()
