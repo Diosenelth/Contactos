@@ -5,11 +5,21 @@
       <map>
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/drawable/circle.xml" value="0.164" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.1735" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.1735" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/activity_main.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/activity_second.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/content_main.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/content_second.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/fragment_agenda.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/fragment_agregar.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/fragment_agregar_contacto.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/fragment_agregar_nota.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/fragment_contacto.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/fragment_editar_contacto.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/fragment_first.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/modelo.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/modelo_agendas.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/GIGABYTEH410/AndroidStudioProjects/Contactos/app/src/main/res/layout/modelo_contactos.xml" value="0.20052083333333334" />
       </map>
     </option>
   </component>

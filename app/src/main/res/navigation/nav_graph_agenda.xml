@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.contactos.fragmentos.AgendaFragment"
+        android:label="Lista de contactos"
+        tools:layout="@layout/fragment_agenda">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_agregarAgendaFragment"
+            app:destination="@id/agregarAgendaFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_editarAgendaFragment"
+            app:destination="@id/editarAgendaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarAgendaFragment"
+        android:name="com.example.contactos.fragmentos.AgregarAgendaFragment"
+        android:label="AgregarAgendaFragment"
+        tools:layout="@layout/fragment_agregar_contacto">
+        <action
+            android:id="@+id/action_agregarAgendaFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarAgendaFragment"
+        android:name="com.example.contactos.fragmentos.EditarAgendaFragment"
+        android:label="EditarAgendaFragment"
+        tools:layout="@layout/fragment_agregar_contacto">
+        <action
+            android:id="@+id/action_editarAgendaFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+</navigation>

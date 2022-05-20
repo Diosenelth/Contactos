@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.contactos.modelos.ContactoModel
 import com.example.contactos.modelos.ContactoSqlite
-import com.example.contactos.databinding.FragmentAgregarBinding
+import com.example.contactos.databinding.FragmentAgregarContactoBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class EditarContactosFragment : Fragment() {
 
 
-    private var _binding: FragmentAgregarBinding? = null
+    private var _binding: FragmentAgregarContactoBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +26,7 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAgregarBinding.inflate(inflater, container, false)
+        _binding = FragmentAgregarContactoBinding.inflate(inflater, container, false)
         return binding.root
     }
 

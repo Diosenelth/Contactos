@@ -15,32 +15,29 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.contactos.IActualizarVista
 import com.example.contactos.R
 
-class AdaptadorContactos(
-    private val model: ArrayList<ContactoModel>,
+class AdaptadorAgenda(
+    private val model: ArrayList<AgendaModel>,
     private val actualizar: IActualizarVista
 ) :
-    RecyclerView.Adapter<AdaptadorContactos.ViewHolder>() {
+    RecyclerView.Adapter<AdaptadorAgenda.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvNombre: TextView = view.findViewById(R.id.nombreApellido)
-        val telefono: TextView = view.findViewById(R.id.tel)
-        val inicial: TextView = view.findViewById(R.id.Inicial)
-        val llamar: ImageView = view.findViewById(R.id.llamar)
+        val nota: TextView = view.findViewById(R.id.nota)
+        val fechaHora: TextView = view.findViewById(R.id.fechaHora)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.modelo_contactos, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.modelo_agendas, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val nomAp = model[position].nombre + " " + model[position].apellido
-        holder.tvNombre.text = nomAp
-        holder.telefono.text = model[position].telefono
-        holder.inicial.text = model[position].nombre!!.substring(0, 1).uppercase()
+        val nomAp = "Fecha "+model[position].fecha + "\nHora " + model[position].hora
+        holder.fechaHora.text = nomAp
+        holder.nota.text = model[position].notas
         holder.itemView.setOnLongClickListener {
             SweetAlertDialog(it.context, SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("¿Desea eliminar el contacto?")
+                .setTitleText("¿Desea eliminar la nota?")
                 .setConfirmText("Si")
                 .setCancelText("No")
                 .setConfirmClickListener { sweetAlertDialog ->
@@ -53,17 +50,11 @@ class AdaptadorContactos(
         holder.itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("id", model[position].id)
-            bundle.putString("nombre", model[position].nombre)
-            bundle.putString("apellido", model[position].apellido)
-            bundle.putString("telefono", model[position].telefono)
-            bundle.putString("correo", model[position].correo)
+            bundle.putString("fecha", model[position].fecha)
+            bundle.putString("hora", model[position].hora)
+            bundle.putString("notas", model[position].notas)
 
-            it.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
-        }
-        holder.llamar.setOnClickListener {
-            val uri = "tel:" + model[position].telefono
-            val intent = Intent(Intent.ACTION_DIAL).setData(Uri.parse(uri))
-            startActivity(holder.itemView.context, intent, null)
+            it.findNavController().navigate(R.id.action_FirstFragment_to_editarAgendaFragment, bundle)
         }
     }
 

@@ -7,16 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.contactos.IActualizarVista
+import com.example.contactos.databinding.FragmentAgendaBinding
 import com.example.contactos.modelos.AdaptadorContactos
 import com.example.contactos.modelos.ContactoSqlite
-import com.example.contactos.databinding.FragmentFirstBinding
+import com.example.contactos.databinding.FragmentContactoBinding
+import com.example.contactos.modelos.AdaptadorAgenda
+import com.example.contactos.modelos.AgendaSqlite
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment(), IActualizarVista {
+class AgendaFragment : Fragment(), IActualizarVista {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentAgendaBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +29,7 @@ class FirstFragment : Fragment(), IActualizarVista {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentAgendaBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -37,9 +40,9 @@ class FirstFragment : Fragment(), IActualizarVista {
     }
 
     private fun mostrar() {
-        val db = ContactoSqlite(requireContext())
+        val db = AgendaSqlite(requireContext())
         val items = db.getArrayList()
-        val adapter = AdaptadorContactos(items, this)
+        val adapter = AdaptadorAgenda(items, this)
         binding.rv.setHasFixedSize(true)
         binding.rv.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this.context)
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(
@@ -55,7 +58,7 @@ class FirstFragment : Fragment(), IActualizarVista {
     }
 
     override fun actualizarVista(String: String) {
-        val db = ContactoSqlite(requireContext())
+        val db = AgendaSqlite(requireContext())
         val res = db.deleteDatos(String)
         if (res) {
             Toast.makeText(this.context, "Contacto Eliminado", Toast.LENGTH_SHORT).show()

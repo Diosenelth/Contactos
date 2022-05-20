@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.contactos.fragmentos.FirstFragment"
+        android:name="com.example.contactos.fragmentos.ContactosFragment"
         android:label="Lista de contactos"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_contacto">
 
 
         <action
-            android:id="@+id/action_FirstFragment_to_agregarFragment"
+            android:id="@+id/action_ContactosFragment_to_agregarContactosFragment"
             app:destination="@id/agregarFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
@@ -30,9 +30,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.contactos.fragmentos.SecondFragment"
+        android:name="com.example.contactos.fragmentos.EditarContactosFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_agregar_contacto">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
@@ -44,16 +44,16 @@
             android:name="telefono"
             app:argType="string" />
         <action
-            android:id="@+id/action_SecondFragment_to_agregarFragment"
+            android:id="@+id/action_editarContactoFragment_to_agregarContactoFragment"
             app:destination="@id/agregarFragment" />
     </fragment>
     <fragment
         android:id="@+id/agregarFragment"
-        android:name="com.example.contactos.fragmentos.AgregarFragment"
+        android:name="com.example.contactos.fragmentos.AgregarContactoFragment"
         android:label="Agregar Contacto"
-        tools:layout="@layout/fragment_agregar">
+        tools:layout="@layout/fragment_agregar_contacto">
         <action
-            android:id="@+id/action_agregarFragment_to_FirstFragment"
+            android:id="@+id/action_agregarContactoFragment_to_contactosFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

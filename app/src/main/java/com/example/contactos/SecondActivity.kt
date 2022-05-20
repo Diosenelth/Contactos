@@ -5,42 +5,45 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.contactos.databinding.ActivityMainBinding
+import com.example.contactos.databinding.ActivitySecondBinding
 
-class MainActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivitySecondBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        val navController = findNavController(R.id.nav_host_fragment_content_main2)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener {
             try {
-                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_ContactosFragment_to_agregarContactosFragment)
+                findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_FirstFragment_to_agregarAgendaFragment)
             } catch (e: Exception) {
                 try {
-                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_editarContactoFragment_to_agregarContactoFragment)
+                    findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_editarAgendaFragment_to_FirstFragment)
                 } catch (e: Exception) {
-                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_agregarContactoFragment_to_contactosFragment)
+                    findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_agregarAgendaFragment_to_FirstFragment)
                 }
             }
         }
+        binding.fab2.setImageDrawable(ContextCompat.getDrawable(baseContext,R.drawable.ic_baseline_contacts_24))
         binding.fab2.setOnClickListener {
-            startActivity(Intent(this,SecondActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
             finish()
         }
     }
