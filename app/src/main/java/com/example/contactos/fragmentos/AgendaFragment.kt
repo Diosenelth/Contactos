@@ -1,16 +1,13 @@
 package com.example.contactos.fragmentos
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.contactos.IActualizarVista
 import com.example.contactos.databinding.FragmentAgendaBinding
-import com.example.contactos.modelos.AdaptadorContactos
-import com.example.contactos.modelos.ContactoSqlite
-import com.example.contactos.databinding.FragmentContactoBinding
 import com.example.contactos.modelos.AdaptadorAgenda
 import com.example.contactos.modelos.AgendaSqlite
 

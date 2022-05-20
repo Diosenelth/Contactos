@@ -46,6 +46,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:text="Nota"
+            android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold" />
 

@@ -94,8 +94,10 @@ class AgregarAgendaFragment : Fragment() {
                     if (hourOfDay < 10) ("0$hourOfDay") else hourOfDay.toString()
                 val minutoFormateado =
                     if (minute < 10) ("0$minute") else minute.toString()
+                val hora = "$horaFormateada:$minutoFormateado"
                 binding.hora.setText(
-                    "$horaFormateada:$minutoFormateado:00"
+                    hora
+                    //                    "$horaFormateada:$minutoFormateado:00"
                 )
             },
             calendar[Calendar.HOUR_OF_DAY],
