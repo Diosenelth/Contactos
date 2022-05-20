@@ -61,7 +61,7 @@ class AgendaFragment : Fragment(), IActualizarVista {
         val db = AgendaSqlite(requireContext())
         val res = db.deleteDatos(String)
         if (res) {
-            Toast.makeText(this.context, "Contacto Eliminado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.context, "Nota Eliminada", Toast.LENGTH_SHORT).show()
             mostrar()
         } else {
             Toast.makeText(this.context, "Error al eliminar", Toast.LENGTH_SHORT).show()
